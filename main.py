@@ -42,15 +42,21 @@ def artcode_r(s):
     Returns:
         list: la liste des tuples (caractère, nombre d'occurences)
     """
-    if len(s)== 0 :
+    if len(s) == 0:
         return []
+    
     s_cour = s[0]
     compt = 1
-    for elem in s[1:] :
+    
+    for elem in s[1:]:
         if elem == s_cour:
-            compt+=1
-    return [(s_cour,compt)]+artcode_r(s[compt:])
-
+            compt += 1
+        else:
+            break  # <--- C'EST CETTE LIGNE QUI MANQUE !
+            # Sans ça, la boucle continue et compte les lettres identiques
+            # qui se trouvent beaucoup plus loin dans la phrase.
+            
+    return [(s_cour, compt)] + artcode_r(s[compt:])
 #### Fonction principale
 
 def main():
