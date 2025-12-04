@@ -20,17 +20,19 @@ def artcode_i(s):
     Returns:
         list: la liste des tuples (caractère, nombre d'occurences)
     """
-    k = 1
-    c = [s[0]]
-    o = [1]
-    while k < len(s):
-        if s[k-1] == s[k]:
-            o[-1] += 1
+
+    c = s[0]
+    compt = 1
+    listeF = []
+    for elem in s[1:]:
+        if c == elem:
+            compt += 1
         else:
-            c += [s[k]]
-            o += [1]
-        k = k + 1
-    return list(zip(c,o))
+            listeF.append((c, compt))
+            c = elem
+            compt = 1
+    listeF.append((c, compt))
+    return listeF
 
 def artcode_r(s):
     """retourne la liste de tuples encodant une chaîne de caractères
