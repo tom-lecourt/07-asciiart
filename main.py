@@ -52,9 +52,7 @@ def artcode_r(s):
         if elem == s_cour:
             compt += 1
         else:
-            break  # <--- C'EST CETTE LIGNE QUI MANQUE !
-            # Sans ça, la boucle continue et compte les lettres identiques
-            # qui se trouvent beaucoup plus loin dans la phrase.
+            break 
             
     return [(s_cour, compt)] + artcode_r(s[compt:])
 #### Fonction principale
